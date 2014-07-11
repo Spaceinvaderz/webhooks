@@ -1,0 +1,20 @@
+{
+  "name": "webhooks",
+  "version": "0.0.1",
+  "description": "Small script for Github Webhooks implementation in webprojects",
+  "main": "hook.js",
+  "scripts": {
+    "test": "mocha test --reporter spec",
+    "start": "node ./hook.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Spaceinvaderz/webhooks.git"
+  },
+  "author": "Spaceinvaderz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Spaceinvaderz/webhooks/issues"
+  },
+  "homepage": "https://github.com/Spaceinvaderz/webhooks"
+}
