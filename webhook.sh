@@ -1,10 +1,10 @@
 #!/bin/sh
-cd /sites/concierge
-#npm stop
-git pull git@github.com:ConciergeStory/concierge.git
-#npm install --production
+SITE_DIR =  "https://github.com/Spaceinvaderz/webhooks"
+REPO = "https://github.com/Spaceinvaderz/webhooks"
+POST_DEPLOY = ""
+cd $SITE_DIR
+git pull $REPO
 bower install
 npm install 
-#npm start > /dev/null &
-#service nginx restart
+$POST_DEPLOY
 
