@@ -1,16 +1,20 @@
 // Listen on port 8181
-var gith = require('gith').create(8181);
+var port = 8181;
+var repo = 'Spaceinvaderz/webhooks';
+var branch = 'master';
+var script = './test.sh';
+
+var gith = require('gith').create(port);
 // Import execFile, to run our bash script
 var execFile = require('child_process').execFile;
-console.log('Running');
+console.log('Webhook process is running on port');
 gith({
-	repo: 'ConciergeStory/concierge'
+	repo: repo
 }).on('all', function(payload) {
-	console.log('before if');
-	if(payload.branch === 'master')
+	if(payload.branch === branch)
 	{
             // Exec a shell script
-            execFile('./test.sh', function(error, stdout, stderr) {
+            execFile(script, function(error, stdout, stderr) {
                     // Log success in some manner
                     console.log( 'exec complete' );
             });
