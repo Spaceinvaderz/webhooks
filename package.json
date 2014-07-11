@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Spaceinvaderz/webhooks/issues"
   },
-  "homepage": "https://github.com/Spaceinvaderz/webhooks"
+  "homepage": "https://github.com/Spaceinvaderz/webhooks",
+  "dependencies": {
+    "gith": "^1.0.4"
+  }
 }
