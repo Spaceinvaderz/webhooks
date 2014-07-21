@@ -12,10 +12,10 @@ gith({
 	if(payload.branch === branch)
 	{
             // Exec a shell script
-            execFile(script, function(error, stdout, stderr) {
+            //execFile(script, function(error, stdout, stderr) {
                     // Log success in some manner
                     console.log( 'exec complete' );
-            });
+            //});
 	}
 console.log('err');
 });
