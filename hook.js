@@ -4,10 +4,10 @@ var branch = 'master'
 var gith = require('gith').create( port );
 // Import execFile, to run our bash script
 var execFile = require('child_process').execFile;
-console.log('Webhook process is running on port' + port);
+console.log('Webhook process is running on port: ' + port);
 
 gith({
-	"repo": "Spaceinvaderz/webhooks"
+	repo: 'Spaceinvaderz/webhooks'
 }).on( 'all' , function( payload ) {
 	if(payload.branch === branch)
 	{
