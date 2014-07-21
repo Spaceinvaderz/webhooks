@@ -14,7 +14,7 @@ gith({
             // Exec a shell script
             //execFile(script, function(error, stdout, stderr) {
                     // Log success in some manner
-                    console.log( 'exec complete' );
+                    console.log( 'Hook executed' );
             //});
 	}
 console.log('err');
