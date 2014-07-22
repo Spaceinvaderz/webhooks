@@ -1,6 +1,6 @@
 {
   "name": "webhooks",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "Small script for Github Webhooks implementation in webprojects",
   "main": "hook.js",
   "scripts": {
@@ -19,5 +19,6 @@
   "homepage": "https://github.com/Spaceinvaderz/webhooks",
   "dependencies": {
     "github-webhook-handler": "^0.2.1"
-  }
+  },
+  "devDependencies": {}
 }

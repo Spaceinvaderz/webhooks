@@ -14,31 +14,54 @@ http.createServer(function (req, res) {
 
 }).listen(port);
 
-//console.log('Hook server started at port %s', port);
-//console.log('Press CTRL+C to close sever');
+console.log('Hookers! Hookers! Hookers! Hook server started at port %s', port);
+console.log('Press CTRL+C to close sever');
 
 handler.on('error', function (err) {
-//    console.err('Error:', err.message);
+    console.err('Error:', err.message);
 });
 
-handler.on('push', function (event) {
-//    console.log('Received a push event for %s to %s',
-//        event.payload.repository.name,
-//       event.payload.ref);
-    console.log (event.payload);
-        // Exec a shell script
-        execFile(script, function(error, stdout, stderr) {
-        // Log success in some manner
-//        console.log( 'exec complete' );
-        });
-        var file = 'echo ' + event.payload + ' >> ./payload.log';   
-        
-        execFile(file, function (error, stdout, stderr) {
-            
-        });
 
+var domagic = function (script){
+    execFile(script, function(error, stdout, stderr) {
+            if (stderr){
+                console.error( stderr );
+            }
+            else{
+                // Log success in some manner
+                console.log( 'exec complete' );
+                console.log( stdout );
+            }
+    });
+}
+
+
+
+handler.on('pull_request', function (event) {
+    console.log('Received a pull_request event for %s to %s',
+        event.payload.repository.name,
+        event.payload.ref);
+        console.log (event.payload);
+        
+        // Exec a shell script
+        domagic(script);
+});   
+
+
+handler.on('deployment', function (event) {
+    console.log('Received deployment event for %s to %s',
+        event.payload.repository.name,
+        event.payload.ref);
+        console.log (event.payload);
+
+        
+        // Exec a shell script
+        domagic(script);
     
 });
+
+
+
 
 //handler.on('issues', function (event) {
 //    console.log('Received an issue event for % action=%s: #%d %s',
