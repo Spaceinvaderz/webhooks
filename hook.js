@@ -25,13 +25,14 @@ handler.on('push', function (event) {
 //    console.log('Received a push event for %s to %s',
 //        event.payload.repository.name,
 //       event.payload.ref);
-concole.log (event.payload);
+    console.log (event.payload);
         // Exec a shell script
         execFile(script, function(error, stdout, stderr) {
         // Log success in some manner
 //        console.log( 'exec complete' );
         
-        });
+     
+     });
     
 });
 
