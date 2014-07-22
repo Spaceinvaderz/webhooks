@@ -24,8 +24,8 @@ handler.on('error', function (err) {
 handler.on('push', function (event) {
 //    console.log('Received a push event for %s to %s',
 //        event.payload.repository.name,
- //       event.payload.ref);
-
+//       event.payload.ref);
+concole.log (event.payload);
         // Exec a shell script
         execFile(script, function(error, stdout, stderr) {
         // Log success in some manner
