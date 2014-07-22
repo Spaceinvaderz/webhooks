@@ -1,28 +1,29 @@
-var http = require('http')
-var createHandler = require('github-webhook-handler')
-var handler = createHandler({ path: '/webhook', secret: 'myhashsecret' })
+var mysecret = 'myhashsecret';
+var http = require('http');
+var createHandler = require('github-webhook-handler');
+var handler = createHandler({ path: '/webhook', secret: mysecret });
 
 http.createServer(function (req, res) {
     handler(req, res, function (err){ 
-      res.statusCode = 404
-      res.end('no such location')
-    })
-}).listen(8181)
+      res.statusCode = 404;
+      res.end('no such location');
+    });
+}).listen(8181);
 
 handler.on('error', function (err) {
-    console.err('Error:', err.message)
-})
+    console.err('Error:', err.message);
+});
 
 handler.on('push', function (event) {
     console.log('Received a push event for %s to %s',
         event.payload.repository.name,
-        event.payload.ref)
-})
+        event.payload.ref);
+});
 
 handler.on('issues', function (event) {
     console.log('Received an issue event for % action=%s: #%d %s',
     event.payload.repository.name,
     event.payload.action,
     event.payload.issue.number,
-    event.payload.issue.title)
-})
+    event.payload.issue.title);
+});
