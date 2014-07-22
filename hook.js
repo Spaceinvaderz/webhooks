@@ -61,6 +61,19 @@ handler.on('deployment', function (event) {
 });
 
 
+handler.on('release', function (event) {
+    console.log('Received release event for %s to %s',
+        event.payload.repository.name,
+        event.payload.ref);
+        console.log (event.payload);
+
+        
+        // Exec a shell script
+        domagic(script);
+    
+});
+
+
 
 
 //handler.on('issues', function (event) {
