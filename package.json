@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/Spaceinvaderz/webhooks",
   "dependencies": {
-    "gith": "^1.0.4"
+    "github-webhook-handler": "^0.2.1"
   }
 }
