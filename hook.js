@@ -1,5 +1,7 @@
 var mysecret = 'myhashsecret';
+var port = 8181;
 var http = require('http');
+var script = './test.sh'
 var createHandler = require('github-webhook-handler');
 var handler = createHandler({ path: '/webhook', secret: mysecret });
 
@@ -8,7 +10,7 @@ http.createServer(function (req, res) {
       res.statusCode = 404;
       res.end('no such location');
     });
-}).listen(8181);
+}).listen(port);
 
 handler.on('error', function (err) {
     console.err('Error:', err.message);
@@ -18,6 +20,11 @@ handler.on('push', function (event) {
     console.log('Received a push event for %s to %s',
         event.payload.repository.name,
         event.payload.ref);
+
+        // Exec a shell script
+        execFile(script, function(error, stdout, stderr) {
+        // Log success in some manner
+        console.log( 'exec complete' );
 });
 
 handler.on('issues', function (event) {
