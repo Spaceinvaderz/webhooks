@@ -14,31 +14,31 @@ http.createServer(function (req, res) {
 
 }).listen(port);
 
-console.log('Hook server started at port %s', port);
-console.log('Press CTRL+C to close sever');
+//console.log('Hook server started at port %s', port);
+//console.log('Press CTRL+C to close sever');
 
 handler.on('error', function (err) {
-    console.err('Error:', err.message);
+//    console.err('Error:', err.message);
 });
 
 handler.on('push', function (event) {
-    console.log('Received a push event for %s to %s',
-        event.payload.repository.name,
-        event.payload.ref);
+//    console.log('Received a push event for %s to %s',
+//        event.payload.repository.name,
+ //       event.payload.ref);
 
         // Exec a shell script
         execFile(script, function(error, stdout, stderr) {
         // Log success in some manner
-        console.log( 'exec complete' );
+//        console.log( 'exec complete' );
         
         });
     
 });
 
-handler.on('issues', function (event) {
-    console.log('Received an issue event for % action=%s: #%d %s',
-    event.payload.repository.name,
-    event.payload.action,
-    event.payload.issue.number,
-    event.payload.issue.title);
-});
+//handler.on('issues', function (event) {
+//    console.log('Received an issue event for % action=%s: #%d %s',
+//    event.payload.repository.name,
+//    event.payload.action,
+//    event.payload.issue.number,
+//    event.payload.issue.title);
+//});
