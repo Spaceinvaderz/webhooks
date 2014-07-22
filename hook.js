@@ -1,7 +1,7 @@
 var mysecret = 'myhashsecret';
 var port = 8181;
 var http = require('http');
-var script = './test.sh'
+var script = './test.sh';
 var createHandler = require('github-webhook-handler');
 var handler = createHandler({ path: '/webhook', secret: mysecret });
 
@@ -10,7 +10,11 @@ http.createServer(function (req, res) {
       res.statusCode = 404;
       res.end('no such location');
     });
+
 }).listen(port);
+
+console.log('Hook server started at port %s', port);
+console.log('Press CTRL+C to close sever');
 
 handler.on('error', function (err) {
     console.err('Error:', err.message);
@@ -25,6 +29,9 @@ handler.on('push', function (event) {
         execFile(script, function(error, stdout, stderr) {
         // Log success in some manner
         console.log( 'exec complete' );
+        
+        });
+    
 });
 
 handler.on('issues', function (event) {
