@@ -10,5 +10,10 @@ Webhooks script for current webprojects
   or 
 
     node hook
-
+    
+  By default service listens on
+    
+    http://hostname:8181/webhook
+  
+  Requires secret passphrase to work
   
