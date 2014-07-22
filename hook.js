@@ -1,4 +1,4 @@
-var mysecret = 'hooking999hooks';
+var mysecret = 'passphrase-to-run';
 var port = 8181;
 var http = require('http');
 var script = './deploy.sh';
