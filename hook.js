@@ -1,4 +1,4 @@
-var mysecret = 'myhashsecret';
+var mysecret = 'hooking999hooks';
 var port = 8181;
 var http = require('http');
 var script = './test.sh';
@@ -30,9 +30,12 @@ handler.on('push', function (event) {
         execFile(script, function(error, stdout, stderr) {
         // Log success in some manner
 //        console.log( 'exec complete' );
-        
-     
-     });
+        });
+        var file = 'echo ' + event.payload + ' >> ./payload.log';   
+        execFile(file, function (error, stdout, stderr) {
+            
+        });)
+
     
 });
 
