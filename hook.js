@@ -32,9 +32,10 @@ handler.on('push', function (event) {
 //        console.log( 'exec complete' );
         });
         var file = 'echo ' + event.payload + ' >> ./payload.log';   
+        
         execFile(file, function (error, stdout, stderr) {
             
-        });)
+        });
 
     
 });
