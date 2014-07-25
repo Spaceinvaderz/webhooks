@@ -5,6 +5,8 @@ var script = './deploy.sh';
 var createHandler = require('github-webhook-handler');
 var handler = createHandler({ path: '/webhook', secret: mysecret });
 var execFile = require('child_process').execFile;
+var cathPhrase = '';
+
 
 http.createServer(function (req, res) {
     handler(req, res, function (err){ 
@@ -47,3 +49,20 @@ handler.on('release', function (event) {
             console.log ('Deploy sequence finished')
         }
 });
+
+handler.on('pull_request', function (event) {
+    console.log('Received pull_request event for %s to %s',
+        event.payload.repository.name,
+        event.payload.ref);
+        
+        if (event.payload.action == 'published'){
+
+            // Exec a shell script
+            domagic(script);
+            console.log ('Deploy sequence finished')
+        }
+});
+
+
+
+
