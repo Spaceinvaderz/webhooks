@@ -18,7 +18,7 @@ console.log('Hook server started at port %s', port);
 console.log('Press CTRL+C to close sever');
 
 handler.on('error', function (err) {
-    console.err('Error:', err.message);
+    console.error('Error:', err.message);
 });
 
 
@@ -29,20 +29,21 @@ var domagic = function (script){
             }
             else{
                 // Log success in some manner
-                console.log( 'exec complete' );
                 console.log( stdout );
+                console.log( 'Deploy script exec complete' );
             }
     });
 }
 
 handler.on('release', function (event) {
-    //console.log('Received release event for %s to %s',
-    //    event.payload.repository.name,
-    //    event.payload.ref);
+    console.log('Received release event for %s to %s',
+        event.payload.repository.name,
+        event.payload.ref);
         
         if (event.payload.action == 'published'){
 
             // Exec a shell script
             domagic(script);
+            console.log ('Deploy sequence finished')
         }
 });
