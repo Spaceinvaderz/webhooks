@@ -25,3 +25,4 @@ build/Release
 # https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
 node_modules
 deploy.sh
+secret
